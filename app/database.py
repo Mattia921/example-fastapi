@@ -7,8 +7,8 @@ import time
 from .config import settings
 
 #postgresql://<username>:<password>@<ip-address/hostname>:<port_number>/<database_name>
-SQLALCHEMY_DATABASE_URL = 'postgresql://postgres:Mattia92@localhost:5432/fastapi'
-#SQLALCHEMY_DATABASE_URL = f'postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}'
+#SQLALCHEMY_DATABASE_URL = 'postgresql://postgres:Mattia92@localhost:5432/fastapi'
+SQLALCHEMY_DATABASE_URL = f'postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}'
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)  #it estabilished a connection to the BD
 

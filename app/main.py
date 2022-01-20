@@ -1,12 +1,14 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from . import models
+from . import models, database
 from .database import engine
 from .routers import post, user, auth, vote
 
 ############################################
+print(database.SQLALCHEMY_DATABASE_URL)
 
-models.Base.metadata.create_all(bind=engine)
+
+#models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
