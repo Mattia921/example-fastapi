@@ -7,21 +7,21 @@ jobs:
     environment:
       name: testing
     env:
-      DATABASE_HOSTNAME: ${{secrets.DATABASE_HOSTNAME}}
-      DATABASE_PORT: ${{secrets.DATABASE_PORT}}
-      DATABASE_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
-      DATABASE_NAME: ${{secrets.DATABASE_NAME}}
-      DATABASE_USERNAME: ${{secrets.DATABASE_USERNAME}}
-      SECRET_KEY: ${{secrets.SECRET_KEY}}
-      ALGORITHM: ${{secrets.ALGORITHM}}
-      ACCESS_TOKEN_EXPIRE_MINUTES: ${{secrets.ACCESS_TOKEN_EXPIRE_MINUTES}}
+      DATABASE_HOSTNAME: localhost #${{secrets.DATABASE_HOSTNAME}}
+      DATABASE_PORT: 5432 #${{secrets.DATABASE_PORT}}
+      DATABASE_PASSWORD: Mattia92 #${{secrets.DATABASE_PASSWORD}}
+      DATABASE_NAME: fastapi #${{secrets.DATABASE_NAME}}
+      DATABASE_USERNAME: postgres #${{secrets.DATABASE_USERNAME}}
+      SECRET_KEY: f646ce0b45db3e9dec6ab24a47c7a480f56624e5065edced4e921ab815cfa77b #${{secrets.SECRET_KEY}}
+      ALGORITHM: HS256 #${{secrets.ALGORITHM}}
+      ACCESS_TOKEN_EXPIRE_MINUTES: 60 #${{secrets.ACCESS_TOKEN_EXPIRE_MINUTES}}
     
     services:
       postgres:
         image: postgres
         env:
-          POSTGRES_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
-          POSTGRES_DB: ${{secrets.DATABASE_NAME}}_test
+          POSTGRES_PASSWORD: Mattia92 #${{secrets.DATABASE_PASSWORD}}
+          POSTGRES_DB: fastapi_test #${{secrets.DATABASE_NAME}}_test
         ports:
           - 5432:5432
         options: >-
