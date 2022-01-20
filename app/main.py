@@ -5,8 +5,6 @@ from .database import engine
 from .routers import post, user, auth, vote
 
 ############################################
-print(database.SQLALCHEMY_DATABASE_URL)
-
 
 #models.Base.metadata.create_all(bind=engine)
 
