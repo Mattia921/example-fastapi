@@ -29,7 +29,7 @@ app.include_router(vote.router)
 
 @app.get("/")
 def root():
-    return {"message": "Hello World -- Docker trials 5"}
+    return {"message": "Hello World -- Docker trial"}
 
 
 """
