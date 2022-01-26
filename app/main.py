@@ -6,7 +6,6 @@ from .routers import post, user, auth, vote
 
 ############################################
 
-#prova
 
 #models.Base.metadata.create_all(bind=engine)
 
