@@ -1,4 +1,6 @@
 from pydantic import BaseSettings
+from dotenv import load_dotenv
+
 
 class Settings(BaseSettings):
     database_hostname: str
@@ -13,4 +15,5 @@ class Settings(BaseSettings):
     class Config:
         env_file = ".env"
 
+load_dotenv()
 settings = Settings()
