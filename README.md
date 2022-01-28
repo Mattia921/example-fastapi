@@ -16,3 +16,8 @@ docker-compose -f docker-compose-dev.yml up -d
 ## Ready to use App
 
 Visit https://fastapi-mattia.herokuapp.com/docs
+
+
+# Project Overview
+
+Go to the wiki section of this project for an explanation of the choices made.
