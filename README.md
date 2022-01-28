@@ -20,4 +20,4 @@ Visit https://fastapi-mattia.herokuapp.com/docs
 
 # Project Overview
 
-Go to the wiki section of this project for an explanation of the choices made.
+Go to the [Wiki](https://github.com/Mattia921/example-fastapi/wiki) section of this project for an explanation of the choices made.
