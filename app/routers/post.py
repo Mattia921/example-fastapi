@@ -23,30 +23,30 @@ def get_posts(db: Session = Depends(get_db), current_user: int = Depends(oauth2.
 
     posts = db.query(models.Post, func.count(models.Vote.post_id).label("votes")).\
         join(models.Vote, models.Post.id == models.Vote.post_id, isouter=True).\
-            group_by(models.Post.id).filter(models.Post.title.contains(search)).\
+            group_by(models.Post.id).filter(models.Post.content.contains(search)).\
                 limit(limit).offset(skip).all()
 
     return posts
 
 
-@router.get("/{id}", response_model = schemas.PostOut)   #id = PATH parameter
-def get_post(id: int, db: Session = Depends(get_db), 
-             current_user: int = Depends(oauth2.get_current_user)):    #because the value of the URL is a string, so we must convert to the same type of the DB id
+@router.get("/{owner_id}", response_model = List[schemas.PostOut]) 
+def get_user_posts(owner_id: int, db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user),
+             limit: int = 10):
 
     #cursor.execute("""SELECT * FROM posts WHERE id=%s""", (str(id),))
     #post = cursor.fetchone() 
 
     #post = db.query(models.Post).filter(models.Post.id == id).first()
 
-    post = db.query(models.Post, func.count(models.Vote.post_id).label("votes")).\
+    posts = db.query(models.Post, func.count(models.Vote.post_id).label("votes")).\
         join(models.Vote, models.Post.id == models.Vote.post_id, isouter=True).\
-            group_by(models.Post.id).filter(models.Post.id == id).first()
+            group_by(models.Post.id).filter(models.Post.owner_id == owner_id).limit(limit).all()
     
-    if not post:
+    if not posts:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
-                            detail=f"post with id {id} was not found")
+                            detail=f"posts with owner_id {id} were not found")
 
-    return post
+    return posts
 
 
 
