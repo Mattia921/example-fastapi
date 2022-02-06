@@ -1,6 +1,6 @@
 # Twitter-like API
 
-Example of Docker based, Python FastAPI Postregsql application and CI/CD pipeline. This application demonstrates CRUD operations using FastAPI and Postgresql as database. 
+Example of Docker based, Python FastAPI PostgreSQL application and CI/CD pipeline. This application demonstrates CRUD operations using FastAPI and PostgreSQL as database. 
 
 ## Local project setup
 
